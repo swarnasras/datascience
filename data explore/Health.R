@@ -9,10 +9,13 @@ d=rbind(b,c)
 d$DPIQuantile=cut(d$DPI,breaks=quantile(d$DPI,na.rm=T))
 d$HeightQuantile=cut(d$Height,breaks=quantile(d$Height,na.rm=T))
 #a$HeightQuantile=cut(d$Height, breaks=c(120,130,140,150,160,170))
+a$HeightQuantile=cut(a$Height, breaks=c(130,140,150,160,170,180), labels=c("very short", "short", "average", "tall", "very tall"))
 
 qplot(Height,Weight,data=a, color=Gender, facets=.~Batch,geoms=c("point","smooth"), method="lm")
 qplot(Height,DPI,data=d, color=Gender, facets=.~HeightQuantile,geoms=c("point","smooth"), method="lm")
 qplot(Height,DPI,data=d, color=Gender, facets=.~Batch, method="lm") +geom_smooth()
+qplot(DPI,Height,data=d, color=Gender, facets=.~Batch, method="lm") +geom_smooth()
+
 qplot(Height,data=d)
 subset(a,a$Gender=="M")
 power$Date <- as.Date(power$Date, format="%d/%m/%Y")
