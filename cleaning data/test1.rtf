@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red249\green249\blue249;\red11\green81\blue160;
+\red242\green242\blue242;\red255\green250\blue204;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl840\sa210
+
+\f0\b\fs50 \cf2 \cb3 Question 1\
+\pard\pardeftab720\sl560
+
+\b0\fs28 \cf2 The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: \
+\
+\pard\pardeftab720\sl560
+{\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"}}{\fldrslt \cf4 https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv}} \
+\
+and load the data into R. The code book, describing the variable names is here: \
+\
+\pard\pardeftab720\sl560
+{\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf"}}{\fldrslt \cf4 https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf }}\
+\
+How many properties are worth $1,000,000 or more?\
+\pard\pardeftab720\sl420
+\cf2 164\
+53 correct\
+24\
+2076\
+\pard\pardeftab720\sl840\sa210
+
+\b\fs50 \cf2 Question 2\
+\pard\pardeftab720\sl560
+
+\b0\fs28 \cf2 Use the data you loaded from Question 1. Consider the variable FES in the code book. Which of the "tidy data" principles does this variable violate?\
+\pard\pardeftab720\sl420
+\cf2 Tidy data has variable values that are internally consistent.\
+Each variable in a tidy data set has been transformed to be interpretable.\
+Numeric values in tidy data can not represent categories.\
+Tidy data has one variable per column. (correct)\
+\pard\pardeftab720\sl840\sa210
+
+\b\fs50 \cf2 Question 3\
+\pard\pardeftab720\sl560
+
+\b0\fs28 \cf2 Download the Excel spreadsheet on Natural Gas Aquisition Program here: \
+\
+\pard\pardeftab720\sl560
+{\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"}}{\fldrslt \cf4 https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx }}\
+\
+Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:
+\f1\fs26 \cb5 \
+\pard\pardeftab720\sl420
+\cf2  dat \
+\pard\pardeftab720\sl560
+
+\f0\fs28 \cf2 \cb3 What is the value of:
+\f1\fs26 \cb5 \
+\pard\pardeftab720\sl420
+\cf2  sum(dat$Zip*dat$Ext,na.rm=T) \
+\pard\pardeftab720\sl560
+
+\f0\fs28 \cf2 \cb3 (original data source: {\field{\*\fldinst{HYPERLINK "http://catalog.data.gov/dataset/natural-gas-acquisition-program"}}{\fldrslt \cf4 http://catalog.data.gov/dataset/natural-gas-acquisition-program}})\
+\pard\pardeftab720\sl420
+\cf2 NA\
+154339\
+36534720 correct\
+184585\
+\pard\pardeftab720\sl840\sa210
+
+\b\fs50 \cf2 Question 4\
+\pard\pardeftab720\sl560
+
+\b0\fs28 \cf2 Read the XML data on Baltimore restaurants from here: \
+\
+\pard\pardeftab720\sl560
+{\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"}}{\fldrslt \cf4 https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml }}\
+\
+How many restaurants have zipcode 21231?\
+\pard\pardeftab720\sl420
+\cf2 127 (Correct)\
+100\
+130\
+181\
+\pard\pardeftab720\sl840\sa210
+
+\b\fs50 \cf2 Question 5\
+\pard\pardeftab720\sl560
+
+\b0\fs28 \cf2 The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: \
+\
+\pard\pardeftab720\sl560
+{\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"}}{\fldrslt \cf4 https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv}} \
+\
+using the fread() command load the data into an R object
+\f1\fs26 \cb5 \
+\pard\pardeftab720\sl420
+\cf2  DT \
+\pard\pardeftab720\sl560
+
+\f0\fs28 \cf2 \cb3 Which of the following is the fastest way to calculate the average value of the variable
+\f1\fs26 \cb5 \
+\pard\pardeftab720\sl420
+\cf2 pwgtp15 \
+\pard\pardeftab720\sl560
+
+\f0\fs28 \cf2 \cb3 broken down by sex using the data.table package?\
+\pard\pardeftab720\sl420
+\cf2 mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)\
+tapply(DT$pwgtp15,DT$SEX,mean)\
+DT[,mean(pwgtp15),by=SEX] (correct)\
+mean(DT$pwgtp15,by=DT$SEX) \
+rowMeans(DT)[DT$SEX==1]; rowMeans(DT)[DT$SEX==2]\
+sapply(split(DT$pwgtp15,DT$SEX),mean)\
+\pard\pardeftab720\sl420
+\cf0 \cb6 \
+}
